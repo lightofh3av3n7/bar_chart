@@ -1,0 +1,35 @@
+<mvc:View controllerName="bar.bar_rbh.controller.View1" 
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true"
+xmlns="sap.m" 
+xmlns:viz="sap.viz.ui5.controls" 
+xmlns:data="sap.viz.ui5.data" 
+xmlns:l="sap.ui.layout"
+xmlns:feeds="sap.viz.ui5.controls.common.feeds">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>game users}">
+					<content>
+						<viz:VizFrame vizType="bar" width="100%" height="100%">
+							<viz:dataset>
+								<data:FlattenedDataset data="{/pcgames}">
+									<data:dimensions>
+										<data:DimensionDefinition name="game Name" valueColor="Good" value="{gameName}"></data:DimensionDefinition>
+									</data:dimensions>
+									<data:measures>
+										<data:MeasureDefinition name="noofusers"  value="{noofusers}"></data:MeasureDefinition>
+									</data:measures>
+								</data:FlattenedDataset>
+							</viz:dataset>
+							<viz:feeds>
+								<feeds:FeedItem type="Dimension" values="game Name" uid="categoryAxis"></feeds:FeedItem>
+								<feeds:FeedItem type="Measure" values="noofusers" uid="valueAxis"></feeds:FeedItem>
+							</viz:feeds>
+						</viz:VizFrame>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
